@@ -34,21 +34,22 @@
             socket.on('data', (data) => {
                 console.log(data);
                 if (data.temp > 50) {
-                    $("#temp").innerHTML = tempString;
+                    console.log("boo");
+                    $("#temp").html(tempString);
                 } else {
-                    $("#temp").innerHTML = "";
+                    $("#temp").html("");
                 }
 
                 if (data.light > 50) {
-                    $("#light").innerHTML = lightString;
+                    $("#light").html(lightString);
                 } else {
-                    $("#light").innerHTML = "";
+                    $("#light").html("");
                 }
 
-                if (data.energy > 50) {
-                    $("#energy").innerHTML = energyString;
+                if (data.energy> 50) {
+                    $("#energy").html(energyString);
                 } else {
-                    $("#energy").innerHTML = "";
+                    $("#energy").html("");
                 }
             });
         </script>
