@@ -12,14 +12,14 @@
 <body class="w3-black">
 
 
-    <div class="w3-container w3-deep-orange w3-large w3-padding-16" style="margin-right:10%">
+    <div class="w3-container w3-deep-orange w3-large w3-padding-16">
         <p><span id="temp" class="w3-xlarge"></span></p>
     </div>
-    <div class="w3-container w3-deep-purple w3-large w3-padding-16" style="margin-left:10%">
+    <div class="w3-container w3-deep-purple w3-large w3-padding-16">
         <p><span id="light" class="w3-xlarge"></span></p>
     </div>
 
-    <div style="width:50%">
+    <div>
         <div class="w3-container w3-blue w3-large w3-padding-16">
             <p><span id="energy" class="w3-xlarge"></span></p>
         </div>
@@ -46,12 +46,28 @@
                     $("#light").html("");
                 }
 
-                if (data.energy> 50) {
+                if (data.energy > 50) {
                     $("#energy").html(energyString);
                 } else {
                     $("#energy").html("");
                 }
             });
+
+            /* Get the documentElement (<html>) to display the page in fullscreen */
+            var elem = document.documentElement;
+
+            /* View in fullscreen */
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { /* Firefox */
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                    elem.msRequestFullscreen();
+                }
+            }
         </script>
 
 </body>
