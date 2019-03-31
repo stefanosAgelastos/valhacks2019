@@ -1,0 +1,26 @@
+{
+  "name": "brainstormervalhacks2019",
+  "version": "1.0.0",
+  "description": "App for the Valhacks Hackathon 2019",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "start-dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanosAgelastos/valhacks2019.git"
+  },
+  "author": "Brain_Stormers",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "body-parser": "^1.18.2",
+    "socket.io": "^2.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/stefanosAgelastos/valhacks2019/issues"
+  },
+  "homepage": "https://github.com/stefanosAgelastos/valhacks2019#readme"
+}

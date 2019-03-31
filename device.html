@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>THE POT</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"></script>
+</head>
+
+<body class="w3-black">
+
+
+    <div class="w3-container w3-deep-orange w3-large w3-padding-16" style="margin-right:10%">
+        <p><span id="temp" class="w3-xlarge"></span></p>
+    </div>
+    <div class="w3-container w3-deep-purple w3-large w3-padding-16" style="margin-left:10%">
+        <p><span id="light" class="w3-xlarge"></span></p>
+    </div>
+
+    <div style="width:50%">
+        <div class="w3-container w3-blue w3-large w3-padding-16">
+            <p><span id="energy" class="w3-xlarge"></span></p>
+        </div>
+
+        <script>
+
+            var tempString = "Turn down the heating";
+            var lightString = "Turn off the light";
+            var energyString = "Close the windows";
+
+            var socket = io.connect();
+            socket.on('data', (data) => {
+                console.log(data);
+                if (data.temp > 50) {
+                    $("#temp").innerHTML = tempString;
+                } else {
+                    $("#temp").innerHTML = "";
+                }
+
+                if (data.light > 50) {
+                    $("#light").innerHTML = lightString;
+                } else {
+                    $("#light").innerHTML = "";
+                }
+
+                if (data.energy > 50) {
+                    $("#energy").innerHTML = energyString;
+                } else {
+                    $("#energy").innerHTML = "";
+                }
+            });
+        </script>
+
+</body>
+
+</html>

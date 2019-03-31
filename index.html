@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mock Data</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div  class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+        <h2 class="w3-center">Mock Live Stream Data</h2>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-thermometer-3"></i></div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" min="1" max="100" value="50" id="temp" type="range">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-sun-o"></i></div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" min="1" max="100" value="50" id="light" type="range">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-fire"></i></div>
+            <div class="w3-rest">
+                <input class="w3-input w3-border" min="1" max="100" value="50" id="energy" type="range">
+            </div>
+        </div>
+
+
+        <p class="w3-center">
+            <button class="w3-button w3-section w3-blue w3-ripple" id="send"> Send </button>
+        </p>
+    </div>
+
+    <script>
+
+        $("#send").click(function (event) {
+
+            var temp = $("#temp").val();
+
+            var light = $("#light").val();
+
+            var energy = $("#energy").val();
+            var data = {
+                "temp": temp,
+                "light": light,
+                "energy": energy
+            }
+            $.ajax({
+                type: "POST",
+                url: "data",
+                data: data
+            }).done(console.log(data));
+        });
+
+
+    </script>
+</body>
+
+</html>
